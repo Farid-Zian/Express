@@ -37,9 +37,7 @@ app.get("/api/movies", (req, res) => {
 });
 
 app.get("/api/movies/:id", (req, res) => {
-	const movieId = parseInt(req.params.id);
-
-	const movie = movies.find((m) => m.id === movieId);
+	const movie = parseInt(req.params.id);
 
 	if (movie) {
 		res.status(200).json(movie);
@@ -47,3 +45,5 @@ app.get("/api/movies/:id", (req, res) => {
 		res.status(404).send("Not Found");
 	}
 });
+
+module.exports = app;
